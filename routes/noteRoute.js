@@ -1,19 +1,19 @@
-const { createNote, validateNote, deleteByID } = require('../lib/notes');
-const notes = require('../db/db.json');
+const { createNote, validateNote, deleteByID, getNotes } = require('../lib/notes');
+// const notes = require('../db/db.json');
 const router = require('express').Router();
-const fs = require('fs');
-const path = require('path');
+// const fs = require('fs');
+// const path = require('path');
 const cuid = require('cuid')
 
 //get from /api/notes route
 router.get('/api/notes', (req, res) => {
-    const result = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/db.json")));
-    res.send(result);
+    res.send(getNotes());
 });
 
 //delete from /api/notes route using the supplied id
 router.delete('/api/notes/:id', (req, res) => {
-    res.json(deleteByID(req.params.id, notes));
+    // const currentNotes = notes;
+    res.json(deleteByID(req.params.id));
 })
 //post to /api/notes route
 router.post('/api/notes', (req, res) => {
@@ -21,8 +21,8 @@ router.post('/api/notes', (req, res) => {
         // notes.length.toString();
     const note = req.body;
     if (validateNote(note)) {
-        createNote(note, notes);
-        res.json(notes);
+        createNote(note);
+        res.json(req.body);
     }
     else {
         res.status(400).json("Bad Request");
