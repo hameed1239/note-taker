@@ -26,9 +26,9 @@
 
   ## Test
   [Click here to try the Note Taker](https://note-taker-hameed1239.herokuapp.com/)
-  ![Website Screenshot]("./public/assets/screenshot/screen1.PNG")
-  ![Website Screenshot]("./public/assets/screenshot/screen2.PNG")
-  ![Website Screenshot]("./public/assets/screenshot/screen3.PNG")
+  ![Website Screenshot](./public/assets/screenshot/screen1.PNG)
+  ![Website Screenshot](./public/assets/screenshot/screen2.PNG)
+  ![Website Screenshot](./public/assets/screenshot/screen3.PNG)
 
   ## Questions
   You can create issues on my git hub page
