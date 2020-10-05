@@ -10,6 +10,12 @@ router.get('/api/notes', (req, res) => {
     res.send(result);
 });
 
+router.delete('/api/notes/:id', (req, res) => {
+    console.log("I'm in params")
+
+    res.json(deleteByID(req.params.id, notes));
+})
+
 router.post('/api/notes', (req, res) => {
     req.body.id = notes.length.toString();
     const note = req.body;
