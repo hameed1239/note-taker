@@ -111,7 +111,6 @@ var renderNoteList = function (notes) {
   
   for (var i = 0; i < notes.length; i++) {
     var note = notes[i];
-    console.log(note);
     var $li = $("<li class='list-group-item'>").data(note);
     var $span = $("<span>").text(note.title);
     var $delBtn = $(
@@ -127,9 +126,7 @@ var renderNoteList = function (notes) {
 
 // Gets notes from the db and renders them to the sidebar
 var getAndRenderNotes = function () {
-  console.log("I'm inside getandrender");
   return getNotes().then(function (data) {
-    console.log(data);
     renderNoteList(data);
   });
 };
