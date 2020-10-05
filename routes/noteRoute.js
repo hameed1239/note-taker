@@ -10,6 +10,16 @@ router.get('/api/notes', (req, res) => {
     res.send(result);
 });
 
-
+router.post('/api/notes', (req, res) => {
+    req.body.id = notes.length.toString();
+    const note = req.body;
+    if (validateNote(note)) {
+        createNote(note, notes);
+        res.json(notes);
+    }
+    else {
+        res.status(400).json("Bad Request");
+    }
+})
 
 module.exports = router;
